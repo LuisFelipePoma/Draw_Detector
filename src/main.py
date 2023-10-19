@@ -7,7 +7,7 @@ from skimage.transform import resize
 import numpy as np
 from tensorflow.keras.models import load_model
 
-model = load_model("model\\modelo_entrenado.h5")
+model = load_model("model/modelo_entrenado.h5")
 app = Flask(__name__, template_folder="templates/")
 
 
