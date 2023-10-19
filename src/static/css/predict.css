@@ -124,11 +124,12 @@ img [alt="device"] {
 
 .buttonSec a {
 	width: 12rem;
-	height: 50px;
+	height: 80px;
 	padding: 1rem 0.5rem;
 	cursor: pointer;
 	text-decoration: none;
-	font-size: 1rem;
+	color: black;
+	font-size: 20px;
 	text-align: center;
 	border: 1px #9795FF solid;
 	background-color: #9795FF;

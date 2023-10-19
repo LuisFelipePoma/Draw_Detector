@@ -85,7 +85,7 @@ button,
 input[type="submit"] {
 	width: 8em;
 	height: 50px;
-	font-size: 1rem;
+	font-size: 20px;
 	margin: 1rem;
 	border-radius: 5px;
 	cursor: pointer;
