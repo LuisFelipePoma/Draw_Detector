@@ -1,6 +1,7 @@
 import os
 import tempfile
 from flask import Flask, request, redirect, render_template, url_for
+import requests
 from skimage import io
 import base64
 from skimage.transform import resize
@@ -36,30 +37,22 @@ def predict():
         os.remove(tmp_file_path)
         nums = salida * 100
         numeros_formateados = [f"{numero:.2f}" for numero in nums]
-        cadena_formateada = ", ".join(numeros_formateados)
-        return redirect(
-            url_for("show_predictions", nums=cadena_formateada, img_data=img_data)
-        )
+        nums = ", ".join(numeros_formateados)
+        componentes = nums.split(", ")
+        nums = [float(componente) for componente in componentes]
+        devices = ["Mouse", "Audifono", "Mando"]
+        if img_data is not None:
+            return render_template(
+                "Prediccion.html", nums=nums, devices=devices, img_data=img_data
+            )
+        else:
+            return redirect("/", code=302)
     except Exception as e:
         print("Error occurred")
         print(e)
 
     return redirect("/", code=302)
 
-
-@app.route("/predicciones")
-def show_predictions():
-    nums = request.args.get("nums")
-    img_data = request.args.get("img_data")
-    componentes = nums.split(", ")
-    nums = [float(componente) for componente in componentes]
-    devices = ["Mouse", "Audifono", "Mando"]
-    if img_data is not None:
-        return render_template(
-            "Prediccion.html", nums=nums, devices=devices, img_data=img_data
-        )
-    else:
-        return redirect("/", code=302)
 
 
 if __name__ == "__main__":
