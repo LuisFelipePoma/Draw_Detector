@@ -25,13 +25,7 @@ main_html = """
 
 
       numero = getRndInteger(0, 10);
-      letra = [
-        "Razer",
-        "Microsoft",
-        "Apple",
-        "Alienware",
-        "LG",
-      ];
+      letra = ["Mouse", "Audifono", "Mando"];
       random = Math.floor(Math.random() * letra.length);
       aleatorio = letra[random];
 
@@ -120,9 +114,8 @@ def upload():
         # check if the post request has the file part
         img_data = request.form.get("myImage").replace("data:image/png;base64,", "")
         aleatorio = request.form.get("numero")
-        print(aleatorio)
         with tempfile.NamedTemporaryFile(
-            delete=False, mode="w+b", suffix=".png", dir=str(aleatorio)
+            delete=False, mode="w+b", suffix=".png", dir=("devices/" + str(aleatorio))
         ) as fh:
             fh.write(base64.b64decode(img_data))
         # file = request.files['myImage']
@@ -137,19 +130,19 @@ def upload():
 @app.route("/prepare", methods=["GET"])
 def prepare_dataset():
     images = []
-    d = ["Platano", "Pera", "Manzana"]
-    brands = []
+    d = ["Mouse", "Audifono", "Mando"]
+    devices = []
     for digit in d:
-        filelist = glob.glob("{}/*.png".format(digit))
+        filelist = glob.glob("{}/*.png".format(devices_directory + digit))
         images_read = io.concatenate_images(io.imread_collection(filelist))
         images_read = images_read[:, :, :, 3]
         digits_read = np.array([digit] * images_read.shape[0])
         images.append(images_read)
-        brands.append(digits_read)
+        devices.append(digits_read)
     images = np.vstack(images)
-    brands = np.concatenate(brands)
-    np.save("X.npy", images)
-    np.save("y.npy", brands)
+    devices = np.concatenate(devices)
+    np.save("model\\X.npy", images)
+    np.save("model\\y.npy", devices)
     return "OK!"
 
 
@@ -164,10 +157,9 @@ def download_y():
 
 
 if __name__ == "__main__":
-    
-    brands = ["Razer", "Microsoft", "Apple", "Alienware", "LG"]
-
-    for d in brands:
-        if not os.path.exists(str(d)):
-            os.mkdir(str(d))
-    app.run()
+    devices = ["Mouse", "Audifono", "Mando"]
+    devices_directory = "devices\\"
+    for d in devices:
+        if not os.path.exists(devices_directory + str(d)):
+            os.mkdir(devices_directory + str(d))
+    app.run(debug=True)

@@ -7,7 +7,7 @@ from skimage.transform import resize
 import numpy as np
 from tensorflow.keras.models import load_model
 
-model = load_model("modelo_entrenado.h5")
+model = load_model("model\\modelo_entrenado2.h5")
 app = Flask(__name__, template_folder="templates/")
 
 
@@ -40,8 +40,9 @@ def predict():
         return redirect(
             url_for("show_predictions", nums=cadena_formateada, img_data=img_data)
         )
-    except:
+    except Exception as e:
         print("Error occurred")
+        print(e)
 
     return redirect("/", code=302)
 
@@ -52,14 +53,14 @@ def show_predictions():
     img_data = request.args.get("img_data")
     componentes = nums.split(", ")
     nums = [float(componente) for componente in componentes]
-    brands = ["Razer", "Microsoft", "Apple", "Alienware", "LG"]
+    devices = ["Mouse", "Audifono", "Mando"]
     if img_data is not None:
         return render_template(
-            "Prediccion.html", nums=nums, brands=brands, img_data=img_data
+            "Prediccion.html", nums=nums, devices=devices, img_data=img_data
         )
     else:
         return redirect("/", code=302)
 
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True, port=3000)

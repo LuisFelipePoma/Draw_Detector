@@ -1,21 +1,106 @@
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+:root {
+	font-family: 'Open Sans', sans-serif;
+	color-scheme: light dark;
+	--primary: #2F4858;
+	--secondary: #33658A;
+	--ternary: #86BBD8;
+	--warning: #a76d3e;
+	--base: #f1f1f1;
 }
 
-.contenedor{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 100px;
+	background-color: var(--primary);
+	opacity: 0.75;
+	text-align: center;
+	justify-content: center;
 }
 
 
-.centrar{
-    display: flex;
-    width: max-content;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
+h2 {
+	font-weight: 100;
+	color: var(--base);
+}
+
+#myCanvas {
+	width: 350px;
+	height: 350px;
+	border: 1px solid black;
+	background-color: var(--base);
+}
+
+/* Make a mask with border container for #myCanvas*/
+
+
+
+button,
+input[type="submit"] {
+	width: 100px;
+	height: 50px;
+	font-size: 1rem;
+	margin: 1rem;
+	border-radius: 15px;
+	cursor: pointer;
+	border-style: none;
+	background: transparent;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+	transition: all 0.5s ease-in-out;
+	-webkit-transition: all 0.5s ease-in-out;
+	-moz-transition: all 0.5s ease-in-out;
+	-ms-transition: all 0.5s ease-in-out;
+	-o-transition: all 0.5s ease-in-out;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+}
+
+#bt_clear {
+	border: 1px var(--secondary) solid;
+}
+
+#bt_clear:hover {
+	filter: brightness(1.5);
+	-webkit-filter: brightness(1.5);
+}
+
+#bt_upload {
+	border: 1px var(--warning) solid;
+
+}
+
+#bt_upload:hover {
+	filter: brightness(1.5);
+	-webkit-filter: brightness(1.5);
+}
+
+.contenedor {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+}
+
+
+.centrar {
+	display: flex;
+	width: max-content;
+	flex-direction: column;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	gap: 10% 10%;
+
 }
