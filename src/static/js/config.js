@@ -14,10 +14,6 @@ function InitThis () {
   random = Math.floor(Math.random() * letra.length)
   aleatorio = letra[random]
 
-  document.getElementById('mensaje').innerHTML =
-    'Dibuja el dispositivo ("Mouse", "Audifono", "Mando")'
-  document.getElementById('numero').value = aleatorio
-
   $('#myCanvas').mousedown(function (e) {
     mousePressed = true
     Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false)
@@ -45,7 +41,7 @@ function Draw (x, y, isDown) {
   if (isDown) {
     ctx.beginPath()
     ctx.strokeStyle = 'black'
-    ctx.lineWidth = 11
+    ctx.lineWidth = 8
     ctx.lineJoin = 'round'
     ctx.moveTo(lastX, lastY)
     ctx.lineTo(x, y)
