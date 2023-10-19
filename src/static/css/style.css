@@ -1,6 +1,6 @@
 :root {
 	font-family: "Lexend";
-	color-scheme: light dark;
+	color-scheme: light ;
 	--primary: #3D1860;
 	--secondary: #3D1860;
 	--ternary: #C3ACD0;
@@ -65,8 +65,8 @@ h2{
 }
 
 #myCanvas {
-	/* width: 350px;
-	height: 350px; */
+	width: 350px;
+	height: 350px;
 	border: 3px solid #5D63A2;
 	background-color: #CECDFF;
 }

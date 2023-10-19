@@ -11,17 +11,35 @@
     <link rel="stylesheet" href="../static/css/predict.css" />
   </head>
   <body>
-    <div class="contenedor">
-      <div>
-        <h1>Dispositivo dibujada</h1>
-        <img src="data:image/png;base64,{{ img_data }}" alt="device" />
-      </div>
-      <ul>
-        {% for num in nums %}
-        <li>{{ num }}% {{ devices[loop.index0] }}</li>
-        {% endfor %}
-      </ul>
-      <a href="/">Ir a la página principal</a>
-    </div>
+    <header>
+      <h1>DEVICE PREDICTOR</h1>
+    </header>
+    <main class="mainSection">
+      <section class="instrucSec">
+        <p>
+          The AI will determine wheter the drawing is a pair of headphones, a
+          mouse or a gamepad.
+        </p>
+        <h2>START DRAWING!!!</h2>
+        <div class="imgDiv">
+          <img src="../static/img/headphones.webp" alt="headphones" />
+          <img src="../static/img/mouse.webp" alt="mouse" />
+          <img src="../static/img/gamepad.png" alt="gamepad" />
+        </div>
+      </section>
+      <section class="canvSec">
+        <div class="canvImg">
+          <img src="data:image/png;base64,{{ img_data }}" alt="device" />
+        </div>
+        <ul>
+          {% for num in nums %}
+          <li><span class="percentage">{{ num }} %</span> {{ devices[loop.index0] }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+      <section class="buttonSec">
+        <a href="/">Ir a la página principal</a>
+      </section>
+    </main>
   </body>
 </html>
