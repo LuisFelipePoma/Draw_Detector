@@ -99,7 +99,7 @@ input[type="submit"] {
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
-	
+	font-family: "Lexend";
 }
 
 .buttons {
@@ -110,6 +110,7 @@ input[type="submit"] {
 #bt_clear {
 	border: 1px #5D63A2 solid;
 	background-color: #5D63A2;
+	color: white;
 }
 
 #bt_clear:hover {
