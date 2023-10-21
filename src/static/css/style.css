@@ -41,18 +41,18 @@ p {
 	margin-left: 30px;
 }
 
+@keyframes shake {
+	0% { transform: translate(0px, 3px) rotate(0deg); }
+}
+
 h2{
 	margin-top: 15px;
 	font-size: 70px;
 	color: #5D63A2;
 	animation: shake 0.5s;
 	animation-iteration-count: infinite;
-	-webkit-animation: shake 0.5s;
 }
 
-@keyframes shake {
-	0% { transform: translate(0px, 3px) rotate(0deg); }
-}
 
 @keyframes shakeImg {
 	0% { transform: translate(0px, 0px) rotate(360deg); }
@@ -99,6 +99,7 @@ input[type="submit"] {
 	-moz-transition: all 0.5s ease-in-out;
 	-ms-transition: all 0.5s ease-in-out;
 	-o-transition: all 0.5s ease-in-out;
+	
 }
 
 .buttons {
@@ -119,6 +120,7 @@ input[type="submit"] {
 #bt_upload {
 	border: 1px #9795FF solid;
 	background-color: #9795FF;
+	
 }
 
 #bt_upload:hover {
