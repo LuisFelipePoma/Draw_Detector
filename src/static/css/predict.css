@@ -81,13 +81,6 @@ p {
 	border: 3px solid #5D63A2;
 	background-color: #CECDFF;
 
-	border-radius: 15px;
-	border: 3px solid;
-	-webkit-border-radius: 15px;
-	-moz-border-radius: 15px;
-	-ms-border-radius: 15px;
-	-o-border-radius: 15px;
-
 }
 
 img [alt="device"] {
@@ -110,7 +103,6 @@ img [alt="device"] {
 }
 
 .percentage {
-	width: 8rem;
 	text-align: end;
 	padding-right: 1rem;
 }
