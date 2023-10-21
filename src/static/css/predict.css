@@ -97,7 +97,7 @@ img [alt="device"] {
 
 .canvSec li {
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
 	margin-bottom: 0.5em;
 	font-size: 2rem;
 }
