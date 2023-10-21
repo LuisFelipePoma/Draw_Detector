@@ -40,7 +40,7 @@ def predict():
         nums = ", ".join(numeros_formateados)
         componentes = nums.split(", ")
         nums = [float(componente) for componente in componentes]
-        devices = ["Mouse", "Audifono", "Mando"]
+        devices = ["Mouse", "Headphones", "Gamepad"]
         if img_data is not None:
             return render_template(
                 "Prediccion.html", nums=nums, devices=devices, img_data=img_data
