@@ -7,6 +7,8 @@ import glob
 import numpy as np
 
 app = Flask(__name__)
+devices_directory = "devices/"
+
 
 main_html = """
 <html>
@@ -148,17 +150,16 @@ def prepare_dataset():
 
 @app.route("/X.npy", methods=["GET"])
 def download_X():
-    return send_file("X.npy")
+    return send_file("model/X.npy")
 
 
 @app.route("/y.npy", methods=["GET"])
 def download_y():
-    return send_file("y.npy")
+    return send_file("model/y.npy")
 
 
 if __name__ == "__main__":
     devices = ["Mouse", "Audifono", "Mando"]
-    devices_directory = "devices/"
     for d in devices:
         if not os.path.exists(devices_directory + str(d)):
             os.mkdir(devices_directory + str(d))
