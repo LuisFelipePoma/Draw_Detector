@@ -141,8 +141,8 @@ def prepare_dataset():
         devices.append(digits_read)
     images = np.vstack(images)
     devices = np.concatenate(devices)
-    np.save("model\\X.npy", images)
-    np.save("model\\y.npy", devices)
+    np.save("model/X.npy", images)
+    np.save("model/y.npy", devices)
     return "OK!"
 
 
@@ -158,8 +158,8 @@ def download_y():
 
 if __name__ == "__main__":
     devices = ["Mouse", "Audifono", "Mando"]
-    devices_directory = "devices\\"
+    devices_directory = "devices/"
     for d in devices:
         if not os.path.exists(devices_directory + str(d)):
             os.mkdir(devices_directory + str(d))
-    app.run(debug=True)
+    app.run()
