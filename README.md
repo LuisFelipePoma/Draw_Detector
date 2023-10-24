@@ -35,3 +35,4 @@
   ```bash
   python main.py
   ```
+> For add new data `repulsive-square-production.up.railway.app`
